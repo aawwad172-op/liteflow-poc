@@ -2,11 +2,16 @@ from bson import UuidRepresentation
 from liteflow.core import configure_workflow_host
 from persistence.mongo_provider import get_persistence_provider
 from workflows.workflow import MyWorkflow
+from liteflow.providers.mongo import MongoPersistenceProvider
 
 
 def run_workflow():
+    # MongoDB connection URI
+    mongo_uri = "mongodb://127.0.0.1:27017/"
+    db_name = "liteflow"
+
     # Configure persistence
-    persistence_provider = get_persistence_provider()
+    persistence_provider = MongoPersistenceProvider(mongo_uri, db_name)
 
     # Configure the workflow host with persistence
     workflow_host = configure_workflow_host(
