@@ -1,4 +1,3 @@
-from bson import UuidRepresentation
 from liteflow.core import configure_workflow_host
 from persistence.mongo_provider import get_persistence_provider
 from workflows.workflow import MyWorkflow
