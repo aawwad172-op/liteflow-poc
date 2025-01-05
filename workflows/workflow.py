@@ -12,7 +12,4 @@ class MyWorkflow(Workflow):
         return 1
 
     def build(self, builder):
-        # Define the steps for the workflow
-        builder.add_step(MyWorkflowStep1())
-        builder.add_step(MyWorkflowStep2())
-        builder.add_step(MyWorkflowStep3())
+        builder.start_with(MyWorkflowStep1).then(MyWorkflowStep2).then(MyWorkflowStep3)
